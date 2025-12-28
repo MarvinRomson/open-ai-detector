@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Text Score Highlighter",
+  "version": "0.1.3",
+  "description": "Scans text blocks on pages, sends them to a local FastAPI server for scoring, and highlights based on the score.",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Scan and highlight all tabs"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

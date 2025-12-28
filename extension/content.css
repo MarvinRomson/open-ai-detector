@@ -1,0 +1,198 @@
+/* Styles for inline rewrite UI and selection UI injected by content.js */
+
+/* Highlight visuals are mostly applied inline via JS (background + outline). */
+.ext-score-highlight {
+  /* Inline styles set background and outline color */
+}
+
+/* Ensure the host element can anchor absolutely positioned UI */
+.ext-score-host {
+  position: relative !important;
+}
+
+/* Small toolbar in the top-right of highlighted elements */
+.ext-score-toolbar {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: inline-flex;
+  gap: 6px;
+  z-index: 2147483647;
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+  padding: 2px 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Rewrite button */
+.ext-score-rewrite-btn {
+  appearance: none;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: #ffffff;
+  color: #333;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 2px 6px;
+  cursor: pointer;
+  line-height: 1.4;
+}
+.ext-score-rewrite-btn:hover {
+  background: #f5f5f5;
+}
+.ext-score-rewrite-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Rewrite suggestion panel */
+.ext-rewrite-panel {
+  position: absolute;
+  top: 30px;
+  right: 4px;
+  z-index: 2147483647;
+  width: min(380px, 90vw);
+  max-width: 90vw;
+  background: #ffffff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.ext-rewrite-panel h4 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+}
+
+.ext-rewrite-textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  font: 13px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
+  padding: 6px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.ext-rewrite-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  justify-content: flex-end;
+}
+
+.ext-rewrite-apply, .ext-rewrite-cancel {
+  appearance: none;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: #ffffff;
+  color: #333;
+  border-radius: 6px;
+  font-size: 13px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.ext-rewrite-apply {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  color: #fff;
+}
+.ext-rewrite-apply:hover {
+  background: #155fc0;
+  border-color: #155fc0;
+}
+.ext-rewrite-cancel:hover {
+  background: #f5f5f5;
+}
+
+/* Selection toggle (near each candidate element, top-left) */
+.ext-select-toggle {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 2147483647;
+  pointer-events: auto;
+  appearance: none;
+  border: 1px solid rgba(0,0,0,0.25);
+  background: #ffffff;
+  color: #222;
+  border-radius: 999px;
+  font-size: 12px;
+  padding: 2px 8px;
+  cursor: pointer;
+  line-height: 1.4;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+.ext-select-toggle:hover {
+  background: #f5f5f5;
+}
+.ext-select-toggle.ext-selected {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  color: #fff;
+}
+
+/* Give a subtle outline when selected (before/after scoring) */
+.ext-selected-outline {
+  outline: 2px dashed rgba(26,115,232,0.6) !important;
+  outline-offset: 2px;
+}
+
+/* Floating run panel (bottom-right) */
+.ext-run-panel {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 10px;
+  padding: 8px 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  font: 13px/1.3 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #111;
+}
+
+.ext-run-count {
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #eee;
+  color: #333;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.ext-run-button, .ext-clear-button {
+  appearance: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+.ext-run-button {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  color: #fff;
+}
+.ext-run-button:hover {
+  background: #155fc0;
+  border-color: #155fc0;
+}
+.ext-clear-button {
+  background: #fff;
+  color: #333;
+}
+.ext-clear-button:hover {
+  background: #f5f5f5;
+}

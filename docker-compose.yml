@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aidetector-api
+    ports:
+      - "8000:8000"
+    environment:
+      # Shared cache directory for Hugging Face models inside the container
+      - HF_HOME=/models
+    volumes:
+      # Persist model downloads between container restarts
+      - hf-model-cache:/models
+    restart: unless-stopped
+
+volumes:
+  hf-model-cache:
+
