@@ -1,4 +1,4 @@
-# Text Scoring App (FastAPI + Chrome Extension)
+# Text Scoring App (FastAPI + Chrome Extension) - Scores if the text is LLM generated
 
 This project contains:
 - A FastAPI server exposing a `/score` endpoint that calls scorer (1–100).
